@@ -160,6 +160,6 @@ def eval_percentage_estimate_on_samples(*sample_size_range_args, **output_args):
 
 if __name__ == '__main__':
     eval_percentage_estimate_on_samples(
-        10, 1001, 20, plot_filename='rawsc.png',
+        10, 1001, 20, plot_filename='percentage_estimate_error.png',
         log_filename="percentage_estimate_data.txt",
         show=False)
