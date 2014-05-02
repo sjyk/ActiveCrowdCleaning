@@ -1,0 +1,79 @@
+Simple Majority Vote:
+
+confusion matrix:
+
+
+                      GT
+             ___________________
+             |  +  |  -  | Tot |
+       -------------------------
+       |  +  | 224 | 37  | 261 |
+	   -------------------------
+Crowd  |  -  | 267 | 472 | 739 |
+	   -------------------------
+	   | Tot | 491 | 509 | 1000|
+	   -------------------------
+	
+	accuracy: 224 + 472 / 1000 = 0.696
+	recall: 224 / 224 + 267 = 0.456
+	precision (PPV): 224 / 224 + 37 = 0.858
+	NPV: 472 / 472 + 267 = 0.638
+	F-measure: 2 * 224 / (2*224 + 37 + 267) = 0.596
+	
+
+
+By Individual votes:
+
+confusion matrix:
+                      GT
+             ___________________
+             |  +  |  -  | Tot |
+       -------------------------
+       |  +  |1106 | 300 |1406 |
+	   -------------------------
+Crowd  |  -  |1349 |2245 |3594 |
+	   -------------------------
+	   | Tot |2455 |2545 |5000 |
+	   -------------------------
+	
+	accuracy: 1106 + 2245 / 5000 = 0.67
+	recall: 1106 / 1106 + 1349 = 0.45
+	precision (PPV): 1106 / 1106 + 300 = 0.787
+	NPV: 2245 / 2245 + 1349 = 0.625
+	F-measure: 2 * 1106 / (2*1106 + 300 + 1349) = 0.573
+	
+
+By worker accuracy:
+
+	To get individual accuracies (correlated subquery):
+	SELECT user_id, 
+		   count(*) * 1.0 / (select count(*) from crowd C2 where C2.user_id = C1.user_id) 
+	from crowd C1 
+	where is_correct 
+	group by user_id;
+
+	See results/worker_accuracy.png for the distribution of accuracies
+	
+	Statistics:
+		# Unique workers: 83
+		Min accuracy:     0.0
+		Max accuracy:     1.00
+		Mean accuracy:    0.689
+		Median accuracy:  0.701
+		Variance:         0.05
+		Skew:             -0.878
+		Kurtosis:         1.511
+		
+By worker participation:
+
+	See results/worker_num_tasks.png for the distribution of number of tasks per worker. Nice and power-law-looking.
+
+	Statistics:
+		# Unique workers: 83
+		Min tasks:        1
+		Max tasks:        846
+		Mean tasks:       60.241
+		Median tasks:     16
+		Variance:         16474.453
+		Skew:             4.282
+		Kurtosis:         20.697
