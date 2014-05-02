@@ -5,6 +5,7 @@ from sqlite3 import connect
 
 from sql import *
 
+# Modify these before running!
 FEATURE_DATA_FILEPATH = '/Users/dhaas/Downloads/CrowdLabel/tweets10k.vis'
 CROWD_LABEL_FILEPATH = '/Users/dhaas/Downloads/CrowdLabel/tweets10k.crd'
 FEATURE_NAMES_FILEPATH = '/Users/dhaas/Downloads/CrowdLabel/tweets10k.dict'
