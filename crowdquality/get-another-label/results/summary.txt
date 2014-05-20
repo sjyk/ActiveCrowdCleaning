@@ -1,0 +1,66 @@
+=============================================================
+====== ESTIMATION SUMMARY ===================================
+=============================================================
+
+=== Parameters ===
+Input File: input/input.txt
+Categories File: input/categories.txt
+Gold Labels File: input/gold.txt
+Cost File: N/A
+Evaluation File: N/A
+
+=== Data ===
+Categories: 2
+Objects in Data Set: 1000
+Workers in Data Set: 83
+Labels Assigned by Workers: 5000
+
+=== Data Quality ===
+[DS_Pr[1]] DS estimate for prior probability of category 1: 0.4018
+[DS_Pr[0]] DS estimate for prior probability of category 0: 0.5982
+[MV_Pr[1]] Majority Vote estimate for prior probability of category 1: 0.2838
+[MV_Pr[0]] Majority Vote estimate for prior probability of category 0: 0.7162
+[DataCost_Estm_DS_Exp] Estimated classification cost (DS_Exp metric): 0.1508
+[DataCost_Estm_MV_Exp] Estimated classification cost (MV_Exp metric): 0.1890
+[DataCost_Estm_DS_ML] Estimated classification cost (DS_ML metric): 0.1011
+[DataCost_Estm_MV_ML] Estimated classification cost (MV_ML metric): 0.1370
+[DataCost_Estm_DS_Min] Estimated classification cost (DS_Min metric): 0.1011
+[DataCost_Estm_MV_Min] Estimated classification cost (MV_Min metric): 0.1370
+[DataCost_Estm_NoVote_Exp] Baseline classification cost (random spammer): 0.5000
+[DataCost_Estm_NoVote_Min] Baseline classification cost (strategic spammer): 0.5000
+[DataCost_Eval_DS_ML] Actual classification cost for EM, maximum likelihood classification: 0.2730
+[DataCost_Eval_MV_ML] Actual classification cost for majority vote classification: 0.3010
+[DataCost_Eval_DS_Min] Actual classification cost for EM, min-cost classification: 0.2730
+[DataCost_Eval_MV_Min] Actual classification cost for naive min-cost classification: 0.3010
+[DataCost_Eval_DS_Soft] Actual classification cost for EM, soft-label classification: 0.2944
+[DataCost_Eval_MV_Soft] Actual classification cost for naive soft-label classification: 0.3260
+[DataQuality_Estm_DS_ML] Estimated data quality, EM algorithm, maximum likelihood: 79.78%
+[DataQuality_Estm_MV_ML] Estimated data quality, naive majority label: 72.60%
+[DataQuality_Estm_DS_Exp] Estimated data quality, EM algorithm, soft label: 69.84%
+[DataQuality_Estm_MV_Exp] Estimated data quality, naive soft label: 62.21%
+[DataQuality_Estm_DS_Min] Estimated data quality, EM algorithm, mincost: 79.78%
+[DataQuality_Estm_MV_Min] Estimated data quality, naive mincost label: 72.60%
+[DataQuality_Eval_DS_ML] Actual data quality, EM algorithm, maximum likelihood: 45.40%
+[DataQuality_Eval_MV_ML] Actual data quality, naive majority label: 39.80%
+[DataQuality_Eval_DS_Min] Actual data quality, EM algorithm, mincost: 45.40%
+[DataQuality_Eval_MV_Min] Actual data quality, naive mincost label: 39.80%
+[DataQuality_Eval_DS_Soft] Actual data quality, EM algorithm, soft label: 41.12%
+[DataQuality_Eval_MV_Soft] Actual data quality, naive soft label: 34.80%
+
+=== Worker Quality ===
+[WorkerQuality_Estm_DS_Exp_n] Estimated worker quality (non-weighted, DS_Exp metric): 25.76%
+[WorkerQuality_Estm_DS_Exp_w] Estimated worker quality (weighted, DS_Exp metric): 21.09%
+[WorkerQuality_Estm_DS_ML_n] Estimated worker quality (non-weighted, DS_ML metric): 40.69%
+[WorkerQuality_Estm_DS_ML_w] Estimated worker quality (weighted, DS_ML metric): 38.70%
+[WorkerQuality_Estm_DS_Min_n] Estimated worker quality (non-weighted, DS_Min metric): 40.69%
+[WorkerQuality_Estm_DS_Min_w] Estimated worker quality (weighted, DS_Min metric): 38.70%
+[WorkerQuality_Eval_DS_Exp_n] Actual worker quality (non-weighted, DS_Exp metric): 25.22%
+[WorkerQuality_Eval_DS_Exp_w] Actual worker quality (weighted, DS_Exp metric): 15.87%
+[WorkerQuality_Eval_DS_ML_n] Actual worker quality (non-weighted, DS_ML metric): 42.48%
+[WorkerQuality_Eval_DS_ML_w] Actual worker quality (weighted, DS_ML metric): 33.31%
+[WorkerQuality_Eval_DS_Min_n] Actual worker quality (non-weighted, DS_Min metric): 42.48%
+[WorkerQuality_Eval_DS_Min_w] Actual worker quality (weighted, DS_Min metric): 33.31%
+[Number of labels] Labels per worker: 60.2410
+[Gold Tests] Gold tests per worker: 0.6024
+
+=============================================================
