@@ -1,9 +1,10 @@
 USE_CROWD = false; % Use crowd majority votes or gt labels?
-NUM_ITERS = 10; % Number of points to evaluate at (after first point)
+%NUM_ITERS = 10; % Number of points to evaluate at (after first point)
 BUDGET = 1000; % Number of tasks to get gt labels for
-ACTIVE_BOOTSTRAP = BUDGET / NUM_ITERS; % Number of initial samples to use for active learning
-ACTIVE_STEPSIZE = BUDGET / NUM_ITERS; % Number of additional points to add at each active learning iteration.
-RANDOM_SEED = 50; % random seed for sampling
+%ACTIVE_BOOTSTRAP = BUDGET / NUM_ITERS; % Number of initial samples to use for active learning
+%ACTIVE_STEPSIZE = BUDGET / NUM_ITERS; % Number of additional points to add at each active learning iteration.
+ACTIVE_STEPSIZE = 50;
+RANDOM_SEED = 42; % random seed for sampling
 
 % Load the dataset:
 % V: crowd votes on each tweet (cols 1-4 are votes, col 5 is majority)
@@ -16,6 +17,8 @@ else
     labels = gt;
 end
 step_size = ACTIVE_STEPSIZE;
+ACTIVE_BOOTSTRAP = BUDGET / 10;
+NUM_ITERS = 1 + (BUDGET - ACTIVE_BOOTSTRAP) / ACTIVE_STEPSIZE;
 rng(RANDOM_SEED);
 
 % run the active learning upfront to avoid recomputation
@@ -33,14 +36,14 @@ learning_X = [];
 rawsc_X = [];
 nsc_X = [];
 disp('Trading off between learning budget and sampling budget...')
-for k = 0:NUM_ITERS
+for k = 1:NUM_ITERS
     disp(['Starting iteration ', num2str(k), '/', num2str(NUM_ITERS)]);
-    sample_budget = BUDGET - (k * step_size);
-    learning_budget = BUDGET - sample_budget;
+    learning_budget = (k - 1) * step_size + ACTIVE_BOOTSTRAP;
+    sample_budget = BUDGET - learning_budget;
     disp(['Learning budget: ', num2str(learning_budget), ... 
         '. Sample budget: ', num2str(sample_budget)]);
     
-    X = k * 100 / NUM_ITERS;
+    X = learning_budget / BUDGET;
     
     if learning_budget ~= 0
         learning_X = [learning_X X];
