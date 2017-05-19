@@ -1,10 +1,10 @@
 USE_CROWD = false; % Use crowd majority votes or gt labels?
 %NUM_ITERS = 10; % Number of points to evaluate at (after first point)
-BUDGET = 1000; % Number of tasks to get gt labels for
+BUDGET = 200; % Number of tasks to get gt labels for
 %ACTIVE_BOOTSTRAP = BUDGET / NUM_ITERS; % Number of initial samples to use for active learning
 %ACTIVE_STEPSIZE = BUDGET / NUM_ITERS; % Number of additional points to add at each active learning iteration.
-ACTIVE_STEPSIZE = 50;
-RANDOM_SEED = 42; % random seed for sampling
+ACTIVE_STEPSIZE = 10;
+RANDOM_SEED = 30; % random seed for sampling
 
 % Load the dataset:
 % V: crowd votes on each tweet (cols 1-4 are votes, col 5 is majority)
@@ -43,7 +43,7 @@ for k = 1:NUM_ITERS
     disp(['Learning budget: ', num2str(learning_budget), ... 
         '. Sample budget: ', num2str(sample_budget)]);
     
-    X = learning_budget / BUDGET;
+    X = 100 * learning_budget / BUDGET;
     
     if learning_budget ~= 0
         learning_X = [learning_X X];
@@ -89,3 +89,4 @@ plot(learning_X, active_learning_plt, 'gs-', ...
  xlabel('Percent of budget allocated to learning vs. sampling')
  ylabel('Error in sum computation')
  title(['Learning vs. Sampling tradeoff with fixed budget of ', num2str(BUDGET)]);
+ legend('Active Learning', 'Passive Learning', 'RawSC', 'Active Learning + NSC', 'Passive Learning + NSC');

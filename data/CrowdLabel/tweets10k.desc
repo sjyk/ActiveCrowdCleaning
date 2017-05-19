@@ -1,0 +1,11 @@
+We transformed 10000 tweets, 5000 postives and 5000 negative tweets. Total number of features = 1976
+
+Format of /Users/sina/crowd/sentiment/stanford/tweets10k.vis file is as follows:
+PrimaryKey, realLabel, feature1, ....feature1976
+
+Format of /Users/sina/crowd/sentiment/stanford/tweets10k.details file is as follows:
+PrimaryKey, realLabel, actual_tweat
+
+Format of /Users/sina/crowd/sentiment/stanford/tweets10k.dict file is as follows:
+NumberOfTheFeature, CorrespondingWord
+
